@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Tareas</title>
+    
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tarea {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+        .tarea:last-child {
+            border-bottom: none;
+        }
+        .tarea h3 {
+            margin: 5px 0;
+        }
+        .tarea p {
+            margin: 5px 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Tareas fuera</h1>
+        <% if (tareas && tareas.length > 0) { %>
+            <% tareas.forEach(tarea => { %>
+                <div class="tarea">
+                    <h3><%= tarea.titulo %></h3>
+                    <p><strong>ID:</strong> <%= tarea.id %></p>
+                    <p><strong>Descripción:</strong> <%= tarea.descripcion %></p>
+                    <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Pendiente' %></p>
+                    <p><strong>Fecha:</strong> <%= new Date(tarea.fecha).toLocaleString() %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No hay tareas disponibles.</p>
+        <% } %>
+    </div>
+</body>
+</html>

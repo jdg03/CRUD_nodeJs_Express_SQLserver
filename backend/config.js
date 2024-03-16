@@ -2,18 +2,18 @@ export const PORT = 4000;
 
 
 
-export const DB_USER = ''; // Nombre de usuario de la base de datos
-export const DB_PASSWORD = ''; // Contraseña de la base de datos
+export const DB_USER = 'root'; // Nombre de usuario de la base de datos
+export const DB_PASSWORD = '1234'; // Contraseña de la base de datos
 export const DB_SERVER = 'localhost'; // Nombre del servidor de la base de datos solo con localhost me funciono
-export const DB_DATABASE = 'tareas_db'; // Nombre de la base de dat os
+export const DB_DATABASE = 'tareas'; // Nombre de la base de dat os
 
 /** 
 
 --CODIGO PARA CREAR LA BASE DE DATOS
 
-Create DATABASE tareas_db
+Create DATABASE tareas
 
-USE tareas_db;
+USE tarea;
 
 CREATE TABLE tareas (
     id INT PRIMARY KEY IDENTITY,
