@@ -63,11 +63,20 @@ export const buscarPorId = async (req, res)=> {
   }
 }
 
+export const nuevaTarea = async (req, res) => {
+ 
+  res.render(ruta + '/crearTarea');
+};
+
+
+
 export const crearTarea = async (req, res) => {
   try {
     const { titulo, descripcion } = req.body;
     const nuevaTarea = await Tarea.crearTarea(titulo, descripcion);
-    res.json(nuevaTarea);
+   console.log(nuevaTarea);
+   res.redirect('/tareas');
+    
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -9,33 +9,48 @@
 <body>
     <div class="container">
         <h1>Listado de Tareas frontEnd</h1>
-        <!-- Formulario con un campo de entrada para el ID -->
-        <form action="/buscar" method="GET">
-            <label for="inputID">ID de tarea:</label>
-            <input type="text" id="inputID" name="id">
-            <button type="submit">Buscar</button>
-        </form>
+       
+        <div class="botones">
+            
 
-         <!-- formulario para buscar por palabra -->
-         <form action="/buscarPorPalabra" method="GET">
-            <label for="inputPalabra">Buscar por palabra:</label>
-            <input type="text" id="inputPalabra" name="palabra">
-            <button type="submit">Buscar</button>
-        </form>
+            <!-- Formulario con un campo de entrada para el ID -->
+            <div class="crear">
+                <form action="/buscar" method="GET">
+                    <label for="inputID">ID de tarea:</label>
+                    <input type="text" id="inputID" name="id">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </form>
+             </div>
+            
+             <div class="crear">
+                <form action="/buscarPorPalabra" method="GET">
+                    <label for="inputPalabra">Buscar por palabra:</label>
+                    <input type="text" id="inputPalabra" name="palabra">
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </form>
+            </div>
 
-        <% if (tareas && tareas.length >= 0) { %>
-            <% tareas.forEach(tarea => { %>
-                <div class="tarea">
-                    <h3><%= tarea.titulo %></h3>
-                    <p><strong>ID:</strong> <%= tarea.id %></p>
-                    <p><strong>Descripción:</strong> <%= tarea.descripcion %></p>
-                    <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Sin completar' %></p>
-                    <p><strong>Fecha:</strong> <%= tarea.fecha %></p>
-                </div>
-            <% }); %>
-        <% } else { %>
-            <p>No hay tareas disponibles.</p>
-        <% } %>
+            <div class="crear">
+                <a href="/nuevaTarea" class="btn-crear">Crear Tarea</a>
+            </div>
+            
+       </div>
+
+      
+
+            <% if (tareas && tareas.length >= 0) { %>
+                <% tareas.forEach(tarea => { %>
+                    <div class="tarea">
+                        <h3><%= tarea.titulo %></h3>
+                        <p><strong>ID:</strong> <%= tarea.id %></p>
+                        <p><strong>Descripción:</strong> <%= tarea.descripcion %></p>
+                        <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Sin completar' %></p>
+                        <p><strong>Fecha:</strong> <%= tarea.fecha %></p>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No hay tareas disponibles.</p>
+            <% } %>
     </div>
 </body>
 </html>

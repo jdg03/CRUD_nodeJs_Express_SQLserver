@@ -30,6 +30,60 @@ h1 {
     margin: 5px 0;
 }
 
-.a{
-    border-style: solid;
+.btn-buscar,
+.btn-crear {
+    background-color: #f7a500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.btn-buscar:hover,
+.btn-crear:hover {
+    background-color:  #f7a500;
+}
+
+.botones{
+
+    display: grid;
+	grid-template-columns: 2fr 2fr 2r;
+	grid-column-gap: 20px;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.botones a{
+
+    display: flex;
+    justify-content: center;
+}
+
+.botones input{
+
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.crear{
+    
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+.crear form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 }

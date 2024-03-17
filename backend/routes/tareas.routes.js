@@ -1,6 +1,6 @@
 import Router from "express";
 
-import { getTarea, getTareas, crearTarea,actualizarTarea, eliminarTarea, ping, buscarPorId, buscarPorPalabra } from "../controllers/tareas.controllers.js";
+import { getTarea, getTareas, crearTarea,actualizarTarea, eliminarTarea, ping, buscarPorId, buscarPorPalabra, nuevaTarea } from "../controllers/tareas.controllers.js";
 
 const router = Router();
 
@@ -10,7 +10,9 @@ router.get('/ping',ping)
 router.get('/tareas', getTareas);
 router.get('/tareas/:id',getTarea); 
 
-router.post('/tareas',crearTarea); 
+router.get('/nuevaTarea',nuevaTarea); 
+router.post('/tareas',crearTarea);
+
 
 router.put('/tareas/:id',actualizarTarea); 
 

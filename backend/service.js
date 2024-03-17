@@ -2,6 +2,7 @@ import express from 'express';
 import { PORT } from './config.js';
 import path from 'path'; // Importa el módulo path
 import { fileURLToPath } from 'url'; // También debes importar fileURLToPath si lo estás usando
+import bodyParser from 'body-parser';
 
 import tareasRoutes from './routes/tareas.routes.js';
 
@@ -21,10 +22,15 @@ app.set('views', ruta);
 const archivosEstaticos = path.join(__dirname, '../frontend');
 app.use(express.static(archivosEstaticos));
 
+// Configurar body-parser para analizar datos de formularios HTML
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Configurar body-parser para analizar datos JSON
+app.use(bodyParser.json());
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
-
 
 // Middleware para parsear JSON
 app.use(express.json());
