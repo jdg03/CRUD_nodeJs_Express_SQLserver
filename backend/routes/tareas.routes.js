@@ -1,4 +1,5 @@
 import Router from "express";
+
 import { getTarea, getTareas, crearTarea,actualizarTarea, eliminarTarea, ping } from "../controllers/tareas.controllers.js";
 
 const router = Router();

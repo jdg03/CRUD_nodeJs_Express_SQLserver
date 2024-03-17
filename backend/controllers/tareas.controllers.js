@@ -1,5 +1,6 @@
 import { pool } from "../db.js";
 import Tarea from '../models/tareas.model.js';
+import { ruta } from "../service.js";
 
  // prueba de conexion
  export const ping = async (req, res) => {
@@ -17,11 +18,9 @@ import Tarea from '../models/tareas.model.js';
 export const getTareas = async (req, res) => {
   try {
     const tareas = await Tarea.getAllTareas();
-    
-    //res.send(tareas);
 
-    res.render('tareas', { tareas }); // Renderiza la vista 'tareas.ejs' y pasa las tareas como datos
-    
+    res.render(ruta +'/tareas', { tareas }); // Renderiza la vista 'tareas.ejs' y pasa las tareas como datos
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
