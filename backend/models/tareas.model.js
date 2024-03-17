@@ -83,6 +83,20 @@ class Tarea {
       throw error;
     }
   }
+
+  async buscarTareasPorPalabra(palabra) {
+    try {
+      const result = await pool
+        .request()
+        .input("palabra", `%${palabra}%`) // Añadir el signo % para buscar coincidencias parciales
+        .query("SELECT * FROM tareas WHERE descripcion LIKE @palabra");
+
+      return result.recordset;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
 
 export default new Tarea();

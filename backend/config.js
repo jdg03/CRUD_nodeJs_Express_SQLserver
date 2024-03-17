@@ -2,8 +2,8 @@ export const PORT = 4000;
 
 
 
-export const DB_USER = ''; // Nombre de usuario de la base de datos
-export const DB_PASSWORD = ''; // Contraseña de la base de datos
+export const DB_USER = 'root'; // Nombre de usuario de la base de datos
+export const DB_PASSWORD = '1234'; // Contraseña de la base de datos
 export const DB_SERVER = 'localhost'; // Nombre del servidor de la base de datos
 export const DB_DATABASE = 'tareas'; // Nombre de la base de dat os
 

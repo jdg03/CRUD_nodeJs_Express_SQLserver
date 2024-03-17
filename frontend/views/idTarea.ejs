@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Tareas</title>
+    <link rel="stylesheet" href="../css/tareas.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tarea Id</h1>
+        <div class="tarea">
+            <h3><strong>Titulo:</strong><%= tarea.titulo %></h3>
+            <p><strong>ID:</strong> <%= tarea.id %></p>
+            <p><strong>Descripción:</strong> <%= tarea.descripcion %></p>
+            <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Sin completar' %></p>
+            <p><strong>Fecha:</strong> <%= tarea.fecha %></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@ import { pool } from "../db.js";
 import Tarea from '../models/tareas.model.js';
 import { ruta } from "../service.js";
 
+
  // prueba de conexion
  export const ping = async (req, res) => {
   try {
@@ -39,6 +40,29 @@ export const getTarea = async (req, res) => {
   }
 };
 
+
+export const buscarPorId = async (req, res)=> {
+  try {
+    // Obtener el ID enviado desde el formulario
+    const id = req.query.id;
+  
+
+    // Lógica para buscar la tarea por el ID recibido
+    const tarea = await Tarea.getTareaById(id);
+
+    // Verificar si la tarea existe
+    if (!tarea) {
+      return res.redirect('/tareas');
+    }
+
+    // Si la tarea existe, renderizar la vista con la tarea encontrada
+    
+    res.render(ruta + '/idTarea', { tarea });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 export const crearTarea = async (req, res) => {
   try {
     const { titulo, descripcion } = req.body;
@@ -65,6 +89,19 @@ export const eliminarTarea = async (req, res) => {
     const id = req.params.id;
     await Tarea.eliminarTarea(id);
     res.json({ message: "Tarea eliminada correctamente" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+  
+};
+
+export const buscarPorPalabra = async (req, res) => {
+  try {
+    const palabra = req.query.palabra;
+    const tareas = await Tarea.buscarTareasPorPalabra(palabra);
+
+    // Renderizar la vista con las tareas encontradas
+    res.render(ruta + '/tareas', { tareas });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

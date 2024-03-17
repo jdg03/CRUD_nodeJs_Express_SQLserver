@@ -5,20 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Tareas</title>
     <link rel="stylesheet" href="../css/tareas.css">
-    
-
 </head>
 <body>
     <div class="container">
         <h1>Listado de Tareas frontEnd</h1>
-        <% if (tareas && tareas.length > 0) { %>
+        <!-- Formulario con un campo de entrada para el ID -->
+        <form action="/buscar" method="GET">
+            <label for="inputID">ID de tarea:</label>
+            <input type="text" id="inputID" name="id">
+            <button type="submit">Buscar</button>
+        </form>
+
+         <!-- formulario para buscar por palabra -->
+         <form action="/buscarPorPalabra" method="GET">
+            <label for="inputPalabra">Buscar por palabra:</label>
+            <input type="text" id="inputPalabra" name="palabra">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <% if (tareas && tareas.length >= 0) { %>
             <% tareas.forEach(tarea => { %>
                 <div class="tarea">
                     <h3><%= tarea.titulo %></h3>
                     <p><strong>ID:</strong> <%= tarea.id %></p>
                     <p><strong>Descripción:</strong> <%= tarea.descripcion %></p>
-                    <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Pendiente' %></p>
-                    <p><strong>Fecha:</strong> <%= new Date(tarea.fecha).toLocaleString() %></p>
+                    <p><strong>Estado:</strong> <%= tarea.estado ? 'Completada' : 'Sin completar' %></p>
+                    <p><strong>Fecha:</strong> <%= tarea.fecha %></p>
                 </div>
             <% }); %>
         <% } else { %>
