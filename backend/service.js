@@ -1,7 +1,7 @@
 import express from 'express';
 import { PORT } from './config.js';
 import path from 'path'; // Importa el módulo path
-import { fileURLToPath } from 'url'; // También debes importar fileURLToPath si lo estás usando
+import { fileURLToPath } from 'url'; // importar fileURLToPath
 import bodyParser from 'body-parser';
 
 import tareasRoutes from './routes/tareas.routes.js';
