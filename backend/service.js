@@ -4,8 +4,6 @@ import path from 'path'; // Importa el módulo path
 import { fileURLToPath } from 'url'; // importar fileURLToPath
 import bodyParser from 'body-parser';
 
-import tareasRoutes from './routes/tareas.routes.js';
-
 const app = express();
 
 // __dirname que contiene la ruta del directorio 
@@ -28,12 +26,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Configurar body-parser para analizar datos JSON
 app.use(bodyParser.json());
 
+// Middleware para parsear JSON
+app.use(express.json());
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
-
-// Middleware para parsear JSON
-app.use(express.json());
 
 //ruta inicial
 app.get('/', (req, res) => {
@@ -42,4 +40,5 @@ app.get('/', (req, res) => {
 });
 
 // Rutas
+import tareasRoutes from './routes/tareas.routes.js';
 app.use(tareasRoutes);
